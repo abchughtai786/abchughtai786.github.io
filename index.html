@@ -1,67 +1,277 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahsan Baig Chughtai | Developer Portfolio</title>
+  <title>Ahsan Baig Chughtai | AI Automation & App Developer</title>
+  <meta name="description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that run themselves.">
+  <meta property="og:title" content="Ahsan Baig Chughtai | AI Automation & App Developer">
+  <meta property="og:description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that run themselves.">
+  <meta property="og:image" content="https://abchughtai786.github.io/assets/og.jpg">
+  <meta property="og:url" content="https://abchughtai786.github.io/">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/profile.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg: #0b1222; --bg2: #0f1c33; --card: #13223d; --line: rgba(255,255,255,.10);
+      --text: #e6edf3; --muted: #9fb0c4; --blue: #79c0ff; --green: #7ee787; --accent: #388bfd;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #f8fafc;
-      margin: 0;
-      padding: 60px 24px;
-      text-align: center;
+      font-family: Inter, system-ui, sans-serif; color: var(--text); line-height: 1.6;
+      background:
+        radial-gradient(circle at 85% 0%, rgba(56,139,253,.18), transparent 40%),
+        radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px) 0 0/22px 22px,
+        linear-gradient(180deg, var(--bg2), var(--bg) 60%);
+      background-attachment: fixed;
     }
-    h1 { font-size: 42px; }
-    p { color: #cbd5e1; }
-    a { color: #38bdf8; }
-    .projects {
-      max-width: 700px;
-      margin: 50px auto;
-      text-align: left;
+    a { color: var(--blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+
+    nav { position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px);
+          background: rgba(11,18,34,.75); border-bottom: 1px solid var(--line); }
+    nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    nav .logo { font-family: 'JetBrains Mono', monospace; color: var(--green); font-size: 15px; }
+    nav .links a { color: var(--muted); margin-left: 22px; font-size: 15px; font-weight: 500; }
+    nav .links a:hover { color: var(--text); text-decoration: none; }
+
+    header { padding: 80px 0 60px; }
+    header .wrap { display: flex; gap: 56px; align-items: center; }
+    header img { width: 220px; height: 220px; border-radius: 50%; flex-shrink: 0;
+                 border: 3px solid rgba(121,192,255,.35); box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .tag { font-family: 'JetBrains Mono', monospace; color: var(--green); font-size: 15px; }
+    .tag b { color: var(--blue); font-weight: 500; }
+    h1 { font-size: 46px; font-weight: 800; line-height: 1.1; margin: 10px 0 14px; letter-spacing: -.5px; }
+    h1 span { background: linear-gradient(90deg, var(--blue), var(--green));
+              -webkit-background-clip: text; background-clip: text; color: transparent; }
+    header p { color: var(--muted); font-size: 18px; max-width: 560px; }
+    .btns { margin-top: 26px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn { padding: 10px 20px; border-radius: 10px; font-weight: 600; font-size: 15px;
+           border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.05); }
+    .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .btn:hover { text-decoration: none; filter: brightness(1.15); }
+
+    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 10px 0 70px; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 22px; text-align: center; }
+    .stat b { display: block; font-size: 32px; font-weight: 800; color: var(--blue); }
+    .stat span { color: var(--muted); font-size: 14px; }
+
+    section { padding: 20px 0 60px; }
+    h2 { font-size: 28px; font-weight: 800; margin-bottom: 26px; }
+    h2::before { content: "# "; font-family: 'JetBrains Mono', monospace; color: var(--green); font-weight: 500; }
+
+    .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px; }
+    .project { background: var(--card); border: 1px solid var(--line); border-radius: 16px; overflow: hidden;
+               display: flex; flex-direction: column; transition: transform .2s, border-color .2s; }
+    .project:hover { transform: translateY(-4px); border-color: rgba(121,192,255,.4); }
+    .project img { width: 100%; aspect-ratio: 2/1; object-fit: cover; display: block; border-bottom: 1px solid var(--line); }
+    .project .body { padding: 20px 22px 22px; display: flex; flex-direction: column; flex: 1; }
+    .project h3 { font-size: 19px; margin-bottom: 6px; }
+    .project p { color: var(--muted); font-size: 15px; flex: 1; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0; }
+    .chip { font-size: 12.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px;
+            background: rgba(255,255,255,.06); border: 1px solid var(--line); color: #c9d6e4; }
+    .project .links a { font-weight: 600; font-size: 14px; margin-right: 16px; }
+
+    .timeline { border-left: 2px solid var(--line); margin-left: 8px; }
+    .job { position: relative; padding: 0 0 30px 28px; }
+    .job::before { content: ""; position: absolute; left: -7px; top: 7px; width: 12px; height: 12px;
+                   border-radius: 50%; background: var(--accent); box-shadow: 0 0 0 4px rgba(56,139,253,.2); }
+    .job h3 { font-size: 18px; }
+    .job .meta { color: var(--muted); font-size: 14px; margin-bottom: 6px; }
+    .job p { color: #c9d6e4; font-size: 15px; max-width: 760px; }
+
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .skillbox { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+    .skillbox h4 { font-size: 14px; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; margin-bottom: 10px; }
+
+    .contact { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 40px; text-align: center; }
+    .contact p { color: var(--muted); margin: 6px 0 22px; }
+    .contact .btns { justify-content: center; }
+
+    .about { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px 30px; }
+    .about p { color: #c9d6e4; font-size: 16.5px; margin-bottom: 14px; }
+    .about p:last-child { margin-bottom: 0; }
+    .about b { color: var(--text); }
+
+    /* Animations */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .7s ease, transform .7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    header img { animation: float 6s ease-in-out infinite; }
+    @keyframes float { 50% { transform: translateY(-8px); } }
+    header .wrap > div { animation: fadeUp .9s ease both; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } }
+    .cursor { display: inline-block; width: 9px; height: 17px; background: var(--green); vertical-align: -3px; margin-left: 4px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      header img, header .wrap > div, .cursor { animation: none; }
     }
-    .project {
-      padding: 20px;
-      margin-bottom: 16px;
-      background: #1e293b;
-      border-radius: 12px;
+
+    footer { text-align: center; color: var(--muted); font-size: 13px; padding: 30px 0 40px; }
+
+    @media (max-width: 760px) {
+      nav .links { display: none; }
+      header { padding: 50px 0 40px; }
+      header .wrap { flex-direction: column; text-align: center; gap: 28px; }
+      header img { width: 160px; height: 160px; }
+      header p { margin: 0 auto; }
+      .btns { justify-content: center; }
+      h1 { font-size: 34px; }
+      .stats { grid-template-columns: 1fr; }
+      .projects, .skills { grid-template-columns: 1fr; }
+      .contact { padding: 28px 20px; }
     }
   </style>
 </head>
 <body>
-  <h1>Ahsan Baig Chughtai</h1>
-  <p>Developer | AI Automation | Flutter | IoT | Linux</p>
-  <p>Building practical software and automation projects.</p>
+  <nav>
+    <div class="wrap">
+      <span class="logo">~/ahsan</span>
+      <div class="links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-  <h2>Featured Projects</h2>
-  <div class="projects">
-    <div class="project">
-      <h3>Automated Job Posting Pipeline</h3>
-      <p>Node.js job aggregation and AI screening.</p>
-      <a href="https://github.com/abchughtai786/automated-job-posting-pipeline">View Project</a>
+  <header>
+    <div class="wrap">
+      <img src="assets/profile.jpg" alt="Ahsan Baig Chughtai">
+      <div>
+        <div class="tag">$ whoami <b>→ co-founder @ Pintern</b><span class="cursor"></span></div>
+        <h1>I build systems that <span>run themselves</span></h1>
+        <p>Hi, I'm Ahsan Baig Chughtai. I build AI automation pipelines, Flutter apps and IoT systems, and I've spent 2+ years in remote operations for UK and global teams.</p>
+        <div class="btns">
+          <a class="btn primary" href="#projects">See my projects</a>
+          <a class="btn" href="https://github.com/abchughtai786">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="stats reveal">
+      <div class="stat"><b>110,000+</b><span>audience reached through Pintern</span></div>
+      <div class="stat"><b>4</b><span>open-source projects with automated tests</span></div>
+      <div class="stat"><b>2+ years</b><span>remote work for UK and global teams</span></div>
     </div>
 
-    <div class="project">
-      <h3>Pintern Flutter Demo</h3>
-      <p>Mobile application demonstration for jobs and internships.</p>
-      <a href="https://abchughtai786.github.io/pintern-portfolio-demo/">Live Demo</a>
-    </div>
+    <section id="about" class="reveal">
+      <h2>About</h2>
+      <div class="about">
+        <p>I like turning slow, repetitive work into systems that run on their own. At <b>Pintern</b>, which I co-founded, finding, checking and publishing opportunities for students used to be done by hand every day. I built the pipeline that now does it automatically, with AI screening out scams before anything goes live.</p>
+        <p>Before that, I spent 2+ years in remote operations for UK and global teams: data validation, reporting and e-commerce account management. That taught me to care about accuracy and to build things that don't break quietly.</p>
+        <p>Outside work, I run my own Linux home server and built an IoT system that controls my home's water pumps. Right now I'm learning how to train and run my own AI models.</p>
+      </div>
+    </section>
 
-    <div class="project">
-      <h3>Smart Water Management</h3>
-      <p>IoT monitoring and automation with Home Assistant and MQTT.</p>
-      <a href="https://github.com/abchughtai786/smart-water-management-iot">View Project</a>
-    </div>
+    <section id="projects" class="reveal">
+      <h2>Projects</h2>
+      <div class="projects">
+        <div class="project">
+          <img src="assets/automated-job-posting-pipeline.jpg" alt="Automated Job Posting Pipeline" loading="lazy">
+          <div class="body">
+            <h3>Automated Job Posting Pipeline</h3>
+            <p>Built for Pintern: finds, verifies and publishes job listings automatically, with AI screening that catches scams and duplicates.</p>
+            <div class="chips"><span class="chip">Node.js</span><span class="chip">AI / LLM</span><span class="chip">SEO</span><span class="chip">47 tests</span></div>
+            <div class="links"><a href="https://github.com/abchughtai786/automated-job-posting-pipeline">Code →</a></div>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/pintern-portfolio-demo.jpg" alt="Pintern Flutter App Demo" loading="lazy">
+          <div class="body">
+            <h3>Pintern: Flutter App Demo</h3>
+            <p>Student jobs and scholarships app with student, employer, ambassador and admin flows. Try it in your browser.</p>
+            <div class="chips"><span class="chip">Flutter</span><span class="chip">Dart</span><span class="chip">Firebase</span><span class="chip">29 tests</span></div>
+            <div class="links"><a href="https://abchughtai786.github.io/pintern-portfolio-demo/">Live demo →</a><a href="https://github.com/abchughtai786/pintern-portfolio-demo">Code →</a></div>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/smart-water-management-iot.jpg" alt="Smart Water Management IoT" loading="lazy">
+          <div class="body">
+            <h3>Smart Water Management IoT</h3>
+            <p>A real home system that monitors two water tanks and runs the pumps automatically, with dry-run protection and phone alerts.</p>
+            <div class="chips"><span class="chip">Home Assistant</span><span class="chip">MQTT</span><span class="chip">ESP32</span><span class="chip">IoT</span></div>
+            <div class="links"><a href="https://github.com/abchughtai786/smart-water-management-iot">Code →</a></div>
+          </div>
+        </div>
+        <div class="project">
+          <img src="assets/home-server-monitoring.jpg" alt="Home Server Monitoring" loading="lazy">
+          <div class="body">
+            <h3>Home Server Monitoring</h3>
+            <p>One-command monitoring stack for a Linux server: disk health warnings, resources and containers in one Grafana dashboard.</p>
+            <div class="chips"><span class="chip">Grafana</span><span class="chip">InfluxDB</span><span class="chip">Telegraf</span><span class="chip">Docker</span></div>
+            <div class="links"><a href="https://github.com/abchughtai786/home-server-monitoring">Code →</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="project">
-      <h3>Home Server Monitoring</h3>
-      <p>Linux server monitoring using Grafana and Docker.</p>
-      <a href="https://github.com/abchughtai786/home-server-monitoring">View Project</a>
-    </div>
-  </div>
+    <section id="experience" class="reveal">
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="job">
+          <h3>Co-founder &amp; Developer · Pintern</h3>
+          <div class="meta">Mar 2025 – Present · Remote</div>
+          <p>Co-founded a platform that helps students across Pakistan, Turkey and Egypt find verified internships, jobs and scholarships. I built the automated publishing pipeline, develop features for the Flutter app, and grew the distribution network to a 110,000+ audience.</p>
+        </div>
+        <div class="job">
+          <h3>Energy Campaign Specialist · Qynetic Marketing</h3>
+          <div class="meta">May 2025 – Apr 2026 · United Kingdom, remote</div>
+          <p>Validated energy data, prepared reports and kept records accurate for a UK energy company, working closely with the technical team.</p>
+        </div>
+        <div class="job">
+          <h3>E-commerce Account Manager · POP - Plus One Percent</h3>
+          <div class="meta">Feb 2024 – Jan 2025 · Remote</div>
+          <p>Managed and grew 4+ seller accounts on Daraz: listings, sales analysis, inventory, logistics and customer service.</p>
+        </div>
+      </div>
+    </section>
 
-  <p><a href="https://github.com/abchughtai786">My GitHub Profile</a></p>
+    <section id="skills" class="reveal">
+      <h2>Skills</h2>
+      <div class="skills">
+        <div class="skillbox"><h4>AI &amp; Automation</h4><div class="chips"><span class="chip">Workflow Automation</span><span class="chip">LLMs</span><span class="chip">Prompt Design</span><span class="chip">n8n</span><span class="chip">API Integration</span></div></div>
+        <div class="skillbox"><h4>Development</h4><div class="chips"><span class="chip">Python</span><span class="chip">JavaScript / Node.js</span><span class="chip">Flutter / Dart</span><span class="chip">Firebase</span><span class="chip">SQL</span><span class="chip">Git</span></div></div>
+        <div class="skillbox"><h4>Systems &amp; IoT</h4><div class="chips"><span class="chip">Linux</span><span class="chip">Docker</span><span class="chip">Grafana</span><span class="chip">Home Assistant</span><span class="chip">MQTT</span><span class="chip">ESP32 / ESP8266</span></div></div>
+        <div class="skillbox"><h4>Business &amp; Ops</h4><div class="chips"><span class="chip">Digital Marketing</span><span class="chip">SEO</span><span class="chip">Data Validation</span><span class="chip">E-commerce</span><span class="chip">Remote Operations</span></div></div>
+      </div>
+    </section>
+
+    <section id="contact" class="reveal">
+      <div class="contact">
+        <h2 style="margin-bottom:0">Let's work together</h2>
+        <p>Open to automation, AI integration and app development work.</p>
+        <div class="btns">
+          <a class="btn primary" href="mailto:Ahsanchughtai.work@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
+          <a class="btn" href="https://github.com/abchughtai786">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Ahsan Baig Chughtai · Built with plain HTML and CSS, hosted on GitHub Pages</footer>
+  <script>
+    // Fade sections in as they scroll into view; show everything if the browser lacks support.
+    const items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      }), { threshold: 0.12 });
+      items.forEach(el => io.observe(el));
+    } else {
+      items.forEach(el => el.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>
