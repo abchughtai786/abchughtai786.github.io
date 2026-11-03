@@ -180,7 +180,7 @@
     <main>
       <section id="about" class="fade">
         <div class="h">About</div>
-        <p class="lede">I co-founded Pintern, and I wrote the pipeline behind its listings. It reads job posts, <em>throws out the scams</em>, and publishes the rest, handing anything uncertain to a person.</p>
+        <p class="lede">I co-founded Pintern, and I wrote the pipeline behind its listings. It reads job posts, <em>throws out the scams</em>, and publishes the rest automatically. Anything it isn't sure about is held back, never posted.</p>
         <div class="prose">
           <p>Before code, I spent two years in remote operations for UK and international teams: checking data, writing reports, running Daraz seller accounts. That work made me allergic to anything that breaks quietly, so what I build fails loudly and safely instead.</p>
           <p>Outside work, I build for my own home too: a self-hosted Linux server, the monitoring that watches it, and an IoT system that runs our water pumps.</p>
@@ -202,8 +202,8 @@
           <p class="sum">The system that keeps Pintern's listings fresh. The production version runs privately for Pintern; the public repository is a demo of the same design that runs on sample data and simulates publishing, so anyone can try it safely.</p>
           <dl class="pab">
             <dt>Problem</dt><dd>Finding, checking and posting opportunities was a daily manual job, and fake listings asking for fees or bank details kept slipping through.</dd>
-            <dt>Built</dt><dd>A Node.js pipeline with <b>no dependencies</b>: rule checks first, then an AI review. If the AI can't decide, the post goes to a person, <b>never straight to the site</b>. Reworded duplicates from different sources are caught too.</dd>
-            <dt>Result</dt><dd>Checked posts are published with SEO pages and search indexing, with no daily manual posting. The public demo has <b>47 tests</b> that run on every change, and saves progress per job, so a crash never posts anything twice.</dd>
+            <dt>Built</dt><dd>A Node.js pipeline with <b>no dependencies</b>: rule checks first, then an AI review. If the AI can't decide, the post is held back, <b>never sent straight to the site</b>. Reworded duplicates from different sources are caught too.</dd>
+            <dt>Result</dt><dd>Fully automated in production: checked posts are published with SEO pages and search indexing, with no manual posting. The public demo has <b>47 tests</b> that run on every change, and saves progress per job, so a crash never posts anything twice.</dd>
           </dl>
           <div class="flow" aria-hidden="true">
             <svg viewBox="0 0 640 60" width="100%" height="60">
