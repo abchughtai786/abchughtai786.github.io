@@ -110,7 +110,9 @@
 
     /* Contact */
     .big { font-family: var(--serif); font-size: 46px; line-height: 1.1; letter-spacing: -.5px; }
-    .copy { cursor: pointer; border-bottom: 1px solid var(--rule); transition: border-color .2s; }
+    .linkbtn { font: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer; text-align: left; }
+    .copy { border-bottom: 1px solid var(--rule); transition: border-color .2s; }
+    a:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
     .copy:hover { border-color: var(--accent); }
     footer { color: var(--faint); margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
 
@@ -119,7 +121,7 @@
              padding: 10px 16px; border-radius: 6px; font-family: var(--mono); font-size: 13px; transition: .25s; pointer-events: none; z-index: 30; }
     .toast.show { opacity: 1; transform: translate(-50%, 0); }
     .palette { position: fixed; inset: 0; background: rgba(0,0,0,.25); display: none; align-items: flex-start; justify-content: center; padding-top: 18vh; z-index: 20; }
-    .palette.open { display: flex; }
+    .palette:not([hidden]) { display: flex; }
     .panel { width: min(520px, 92vw); background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.25); overflow: hidden; }
     .panel input { width: 100%; border: 0; border-bottom: 1px solid var(--rule); background: transparent; color: var(--ink); padding: 16px 18px; font: inherit; font-size: 16px; outline: none; }
     .panel ul { list-style: none; max-height: 320px; overflow: auto; padding: 6px; }
@@ -169,16 +171,16 @@
         <div class="elsewhere">
           <a class="u" href="https://github.com/abchughtai786">GitHub</a>
           <a class="u" href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
-          <span class="u copy" data-copy>Email</span>
+          <button type="button" class="linkbtn u" data-copy>Email</button>
         </div>
-        <span class="kbd mono" id="open-palette">Press <kbd>Ctrl</kbd><kbd>K</kbd> to navigate</span>
+        <button type="button" class="kbd mono linkbtn" id="open-palette" aria-haspopup="dialog" aria-controls="palette">Press <kbd>Ctrl</kbd><kbd>K</kbd> to navigate</button>
       </div>
     </aside>
 
     <main>
       <section id="about" class="fade">
         <div class="h">About</div>
-        <p class="lede">I co-founded Pintern, and I wrote the pipeline that runs it. It reads job posts, <em>throws out the scams</em>, and publishes the rest without anyone touching it.</p>
+        <p class="lede">I co-founded Pintern, and I wrote the pipeline behind its listings. It reads job posts, <em>throws out the scams</em>, and publishes the rest, handing anything uncertain to a person.</p>
         <div class="prose">
           <p>Before code, I spent two years in remote operations for UK and international teams: checking data, writing reports, running Daraz seller accounts. That work made me allergic to anything that breaks quietly, so what I build fails loudly and safely instead.</p>
           <p>Outside work, I build for my own home too: a self-hosted Linux server, the monitoring that watches it, and an IoT system that runs our water pumps.</p>
@@ -197,11 +199,11 @@
             <h3><a href="https://github.com/abchughtai786/automated-job-posting-pipeline">Job posting pipeline <span class="arr">↗</span></a></h3>
             <span class="when mono">Pintern · 2025</span>
           </div>
-          <p class="sum">The system that keeps Pintern's listings fresh.</p>
+          <p class="sum">The system that keeps Pintern's listings fresh. The production version runs privately for Pintern; the public repository is a demo of the same design that runs on sample data and simulates publishing, so anyone can try it safely.</p>
           <dl class="pab">
             <dt>Problem</dt><dd>Finding, checking and posting opportunities was a daily manual job, and fake listings asking for fees or bank details kept slipping through.</dd>
             <dt>Built</dt><dd>A Node.js pipeline with <b>no dependencies</b>: rule checks first, then an AI review. If the AI can't decide, the post goes to a person, <b>never straight to the site</b>. Reworded duplicates from different sources are caught too.</dd>
-            <dt>Result</dt><dd>Posts publish themselves with SEO pages and search indexing. <b>47 tests</b> run on every change, and progress is saved per job, so a crash never posts anything twice.</dd>
+            <dt>Result</dt><dd>Checked posts are published with SEO pages and search indexing, with no daily manual posting. The public demo has <b>47 tests</b> that run on every change, and saves progress per job, so a crash never posts anything twice.</dd>
           </dl>
           <div class="flow" aria-hidden="true">
             <svg viewBox="0 0 640 60" width="100%" height="60">
@@ -298,7 +300,7 @@
 
       <section id="contact" class="fade">
         <div class="h">Contact</div>
-        <p class="big">Got something slow and manual? <span class="copy" data-copy>Email me.</span></p>
+        <p class="big">Got something slow and manual? <button type="button" class="linkbtn copy" data-copy>Email me.</button></p>
         <p class="muted" style="margin-top:14px">I'm on Pakistan time (UTC+5). <a class="u" href="mailto:Ahsanchughtai.work@gmail.com">Ahsanchughtai.work@gmail.com</a></p>
         <footer class="mono">
           <span>© 2026 Ahsan Baig Chughtai</span>
@@ -309,11 +311,12 @@
     </main>
   </div>
 
-  <div class="toast" id="toast"></div>
-  <div class="palette" id="palette" role="dialog" aria-label="Command menu">
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command menu" hidden>
     <div class="panel">
-      <input id="q" placeholder="Where to?" autocomplete="off">
-      <ul id="results"></ul>
+      <input id="q" placeholder="Where to?" autocomplete="off" role="combobox" aria-expanded="true"
+             aria-controls="results" aria-autocomplete="list" aria-label="Search sections and links">
+      <ul id="results" role="listbox" aria-label="Results"></ul>
     </div>
   </div>
 
@@ -357,41 +360,66 @@
       })
       .catch(() => {});
 
-    // Command menu: Ctrl/Cmd + K.
+    // Command menu: Ctrl/Cmd + K. Focus stays inside while open and returns to the opener on close.
     const actions = [
-      ['About', 'section', () => location.hash = '#about'],
-      ['Selected work', 'section', () => location.hash = '#work'],
-      ['Experience', 'section', () => location.hash = '#experience'],
-      ['Contact', 'section', () => location.hash = '#contact'],
+      ['About', 'section', () => go('#about')],
+      ['Selected work', 'section', () => go('#work')],
+      ['Experience', 'section', () => go('#experience')],
+      ['Contact', 'section', () => go('#contact')],
       ['Copy email address', 'action', copyEmail],
       ['Try the Pintern app demo', 'link', () => location.href = 'https://abchughtai786.github.io/pintern-portfolio-demo/'],
       ['GitHub', 'link', () => location.href = 'https://github.com/abchughtai786'],
       ['LinkedIn', 'link', () => location.href = 'https://www.linkedin.com/in/ahsan-chughtai/'],
     ];
     const pal = document.getElementById('palette'), q = document.getElementById('q'), ul = document.getElementById('results');
-    let shown = [], sel = 0;
-    const render = () => {
+    const page = document.querySelector('.layout');
+    let shown = [], sel = 0, opener = null;
+
+    // Move focus to the section heading so keyboard and screen-reader users land there.
+    function go(hash) {
+      const target = document.querySelector(hash);
+      location.hash = hash;
+      const h = target.querySelector('.h');
+      h.setAttribute('tabindex', '-1'); h.focus({ preventScroll: true });
+    }
+    function render() {
       shown = actions.filter(a => a[0].toLowerCase().includes(q.value.toLowerCase()));
       sel = Math.min(sel, Math.max(shown.length - 1, 0));
-      ul.innerHTML = shown.map((a, i) => `<li class="${i === sel ? 'sel' : ''}" data-i="${i}">${a[0]}<span>${a[1]}</span></li>`).join('');
-    };
-    const open = () => { pal.classList.add('open'); q.value = ''; sel = 0; render(); q.focus(); };
-    const close = () => pal.classList.remove('open');
-    const run = i => { const a = shown[i]; if (a) { close(); a[2](); } };
-    document.getElementById('open-palette').addEventListener('click', open);
+      ul.innerHTML = shown.map((a, i) =>
+        `<li id="opt-${i}" role="option" aria-selected="${i === sel}" class="${i === sel ? 'sel' : ''}" data-i="${i}">${a[0]}<span aria-hidden="true">${a[1]}</span></li>`
+      ).join('') || '<li role="option" aria-disabled="true">No matches</li>';
+      if (shown.length) q.setAttribute('aria-activedescendant', 'opt-' + sel); else q.removeAttribute('aria-activedescendant');
+    }
+    function openMenu() {
+      opener = document.activeElement;
+      pal.hidden = false; page.inert = true;
+      q.value = ''; sel = 0; render(); q.focus();
+    }
+    function closeMenu() {
+      if (pal.hidden) return;
+      pal.hidden = true; page.inert = false;
+      if (opener && document.contains(opener)) opener.focus();
+    }
+    function run(i) {
+      const a = shown[i]; if (!a) return;
+      pal.hidden = true; page.inert = false; a[2]();
+    }
+    document.getElementById('open-palette').addEventListener('click', openMenu);
     document.addEventListener('keydown', e => {
       if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault(); pal.classList.contains('open') ? close() : open();
-      } else if (pal.classList.contains('open') && shown.length) {
-        if (e.key === 'Escape') close();
-        else if (e.key === 'ArrowDown') { sel = (sel + 1) % shown.length; render(); e.preventDefault(); }
-        else if (e.key === 'ArrowUp') { sel = (sel - 1 + shown.length) % shown.length; render(); e.preventDefault(); }
-        else if (e.key === 'Enter') run(sel);
-      } else if (e.key === 'Escape') close();
+        e.preventDefault(); pal.hidden ? openMenu() : closeMenu(); return;
+      }
+      if (pal.hidden) return;
+      if (e.key === 'Escape') { e.preventDefault(); closeMenu(); }
+      else if (e.key === 'Tab') { e.preventDefault(); q.focus(); }   // keep focus inside the dialog
+      else if (!shown.length) return;
+      else if (e.key === 'ArrowDown') { e.preventDefault(); sel = (sel + 1) % shown.length; render(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = (sel - 1 + shown.length) % shown.length; render(); }
+      else if (e.key === 'Enter') { e.preventDefault(); run(sel); }
     });
     q.addEventListener('input', () => { sel = 0; render(); });
-    ul.addEventListener('click', e => { const li = e.target.closest('li'); if (li) run(+li.dataset.i); });
-    pal.addEventListener('click', e => { if (e.target === pal) close(); });
+    ul.addEventListener('click', e => { const li = e.target.closest('li[data-i]'); if (li) run(+li.dataset.i); });
+    pal.addEventListener('click', e => { if (e.target === pal) closeMenu(); });
   </script>
 </body>
 </html>
