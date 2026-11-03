@@ -3,255 +3,294 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahsan Baig Chughtai</title>
-  <meta name="description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that run themselves.">
-  <meta property="og:title" content="Ahsan Baig Chughtai">
-  <meta property="og:description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that run themselves.">
+  <title>Ahsan Baig Chughtai | AI Automation & App Developer</title>
+  <meta name="description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that replace manual work.">
+  <meta property="og:title" content="Ahsan Baig Chughtai | AI Automation & App Developer">
+  <meta property="og:description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that replace manual work.">
   <meta property="og:image" content="https://abchughtai786.github.io/assets/og.jpg">
   <meta property="og:url" content="https://abchughtai786.github.io/">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/profile.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --bg: #ffffff; --text: #111111; --muted: #6b6b6b; --line: #e6e6e6; --soft: #f5f5f5; }
-    @media (prefers-color-scheme: dark) {
-      :root { --bg: #0a0a0a; --text: #f2f2f2; --muted: #9a9a9a; --line: #262626; --soft: #151515; }
+    :root {
+      --ink: #0a0a0a; --muted: #666; --line: #eaeaea; --bg: #fafafa; --card: #fff;
+      --accent: #635bff; --accent2: #00b4ff; --chip: #f4f4f5;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, sans-serif; background: var(--bg); color: var(--text);
-           line-height: 1.65; font-size: 17px; -webkit-font-smoothing: antialiased; }
-    a { color: var(--text); text-decoration: underline; text-decoration-color: var(--line);
-        text-underline-offset: 3px; transition: text-decoration-color .2s; }
-    a:hover { text-decoration-color: var(--text); }
-    .wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
-    .mono { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--muted); }
+    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--bg);
+           line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
 
-    nav { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); }
-    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 58px; }
-    nav .name { font-weight: 600; text-decoration: none; }
-    nav .links a { text-decoration: none; color: var(--muted); margin-left: 22px; font-size: 15px; }
-    nav .links a:hover { color: var(--text); }
+    /* Nav */
+    nav { position: sticky; top: 0; z-index: 10; background: rgba(250,250,250,.82);
+          backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
+    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; }
+    .logo img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+    nav .links a { margin-left: 28px; color: var(--muted); font-size: 15px; transition: color .2s; }
+    nav .links a:hover { color: var(--ink); }
+    nav .links .btn { background: var(--ink); color: #fff; padding: 8px 18px; border-radius: 999px; }
+    nav .links .btn:hover { color: #fff; opacity: .85; }
 
-    header { padding: 90px 0 70px; }
-    header img { width: 96px; height: 96px; border-radius: 50%; filter: grayscale(1); margin-bottom: 28px; }
-    h1 { font-size: 44px; line-height: 1.12; font-weight: 700; letter-spacing: -1px; margin: 10px 0 18px; }
-    header p { color: var(--muted); font-size: 19px; max-width: 600px; }
-    .links-row { margin-top: 26px; display: flex; gap: 22px; flex-wrap: wrap; font-weight: 500; }
+    /* Hero */
+    .hero { text-align: center; padding: 110px 0 80px; position: relative; }
+    .hero::before { content: ""; position: absolute; left: 50%; top: 30px; width: 760px; height: 380px; max-width: 100%;
+                    transform: translateX(-50%); background: radial-gradient(closest-side, rgba(99,91,255,.18), transparent); z-index: -1; }
+    .pill { display: inline-flex; gap: 8px; align-items: center; border: 1px solid var(--line); background: var(--card);
+            padding: 6px 14px; border-radius: 999px; font-size: 14px; color: var(--muted); }
+    .pill i { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block;
+              box-shadow: 0 0 0 0 rgba(34,197,94,.6); animation: ping 2s infinite; }
+    @keyframes ping { 70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
+    h1 { font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -2.5px; margin: 26px auto 22px; max-width: 840px; }
+    .grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .hero p { font-size: 20px; color: var(--muted); max-width: 640px; margin: 0 auto; }
+    .btns { display: flex; gap: 12px; justify-content: center; margin-top: 34px; flex-wrap: wrap; }
+    .b { padding: 12px 24px; border-radius: 999px; font-weight: 600; border: 1px solid var(--line); background: var(--card); transition: transform .2s, box-shadow .2s; }
+    .b:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
+    .b.p { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .stack { display: flex; justify-content: center; gap: 34px; flex-wrap: wrap; margin-top: 64px; color: #9a9a9a; font-weight: 600; font-size: 15px; }
 
-    section { padding: 56px 0; border-top: 1px solid var(--line); }
-    h2 { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;
-         color: var(--muted); margin-bottom: 30px; }
+    /* Sections */
+    section { padding: 90px 0; }
+    .label { font-size: 14px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
+    h2 { font-size: 40px; font-weight: 800; letter-spacing: -1.2px; line-height: 1.15; margin: 8px 0 44px; }
+    .center { text-align: center; }
 
-    .about p { margin-bottom: 16px; }
-    .about p:last-child { margin-bottom: 0; }
+    /* About */
+    .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; }
+    .about p { color: #333; font-size: 17.5px; margin-bottom: 16px; }
+    .stats { display: grid; gap: 16px; }
+    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
+    .stat b { display: block; font-size: 34px; font-weight: 800; letter-spacing: -1px; }
+    .stat span { color: var(--muted); font-size: 15px; }
 
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid var(--line); margin-top: 36px; }
-    .stat { padding: 22px; border-right: 1px solid var(--line); }
-    .stat:last-child { border-right: 0; }
-    .stat b { display: block; font-size: 28px; font-weight: 700; letter-spacing: -.5px; }
-    .stat span { font-size: 14px; color: var(--muted); }
+    /* Projects */
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,.04); transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column; }
+    .card:hover { box-shadow: 0 24px 48px rgba(0,0,0,.08); transform: translateY(-4px); }
+    .card .img { height: 250px; background: linear-gradient(135deg, #f3f2ff, #eefbff); overflow: hidden; padding: 28px 28px 0; }
+    .card .img img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 10px 10px 0 0;
+                     box-shadow: 0 10px 30px rgba(0,0,0,.14); transition: transform .4s; }
+    .card:hover .img img { transform: scale(1.03); }
+    .card .img.phone { padding: 22px 0 0; display: flex; justify-content: center; }
+    .card .img.phone img { width: auto; height: 120%; border-radius: 14px 14px 0 0; }
+    .card .body { padding: 22px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+    .card h3 { font-size: 20px; margin-bottom: 4px; }
+    .card p { color: var(--muted); font-size: 15.5px; flex: 1; }
+    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 16px; }
+    .tags span { font-size: 12.5px; background: var(--chip); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; color: #444; }
+    .card .links a { font-weight: 600; font-size: 15px; margin-right: 18px; color: var(--accent); }
+    .card .links a:hover { text-decoration: underline; }
 
-    .project { display: grid; grid-template-columns: 1fr 260px; gap: 32px; padding: 28px 0;
-               border-bottom: 1px solid var(--line); align-items: center; }
-    .project:first-of-type { padding-top: 0; }
-    .project:last-child { border-bottom: 0; padding-bottom: 0; }
-    .project h3 { font-size: 20px; font-weight: 600; margin-bottom: 6px; }
-    .project p { color: var(--muted); font-size: 16px; }
-    .project .tech { margin: 12px 0 10px; }
-    .project .actions { display: flex; gap: 18px; font-size: 15px; font-weight: 500; }
-    .shot { width: 260px; height: 170px; border: 1px solid var(--line); background: var(--soft); overflow: hidden; }
-    .shot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block;
-                filter: grayscale(1); transition: filter .4s, transform .4s; }
-    .project:hover .shot img { filter: grayscale(0); transform: scale(1.03); }
+    /* Experience */
+    .jobs { max-width: 820px; margin: 0 auto; }
+    .job { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; margin-bottom: 16px;
+           display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; }
+    .job h3 { font-size: 18px; }
+    .job .co { color: var(--accent); font-weight: 600; font-size: 15px; }
+    .job .when { color: var(--muted); font-size: 14px; text-align: right; grid-row: 1 / 3; grid-column: 2; padding-top: 2px; }
+    .job p { grid-column: 1 / -1; color: #444; font-size: 15.5px; margin-top: 8px; }
 
-    .job { display: grid; grid-template-columns: 150px 1fr; gap: 24px; padding-bottom: 28px; }
-    .job:last-child { padding-bottom: 0; }
-    .job .when { color: var(--muted); font-size: 15px; padding-top: 2px; }
-    .job h3 { font-size: 17px; font-weight: 600; }
-    .job .where { color: var(--muted); font-size: 15px; margin-bottom: 6px; }
-    .job p { font-size: 16px; }
+    /* Skills */
+    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .skill { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+    .skill h4 { font-size: 15px; margin-bottom: 12px; }
+    .skill .tags { margin: 0; }
 
-    .skills { display: grid; grid-template-columns: 150px 1fr; row-gap: 14px; column-gap: 24px; font-size: 16px; }
-    .skills dt { color: var(--muted); }
+    /* Contact */
+    .contact { background: var(--ink); color: #fff; border-radius: 28px; padding: 70px 40px; text-align: center; position: relative; overflow: hidden; }
+    .contact::before { content: ""; position: absolute; inset: -40% -10% auto; height: 120%;
+                       background: radial-gradient(closest-side, rgba(99,91,255,.35), transparent); }
+    .contact > * { position: relative; }
+    .contact h2 { margin-bottom: 14px; }
+    .contact p { color: #a3a3a3; font-size: 18px; }
+    .contact .b { background: #fff; color: var(--ink); border-color: #fff; }
+    .contact .b.o { background: transparent; color: #fff; border-color: #444; }
 
-    .contact h3 { font-size: 30px; font-weight: 700; letter-spacing: -.5px; margin-bottom: 8px; }
-    .contact p { color: var(--muted); }
+    footer { padding: 40px 0 50px; color: var(--muted); font-size: 14px; text-align: center; }
 
-    footer { border-top: 1px solid var(--line); padding: 30px 0 50px; color: var(--muted); font-size: 14px; }
-
-    /* Subtle animations */
-    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .8s ease, transform .8s ease; }
+    /* Scroll animations */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
-    header > .wrap > * { animation: in .8s ease both; }
-    header > .wrap > *:nth-child(2) { animation-delay: .08s; }
-    header > .wrap > *:nth-child(3) { animation-delay: .16s; }
-    header > .wrap > *:nth-child(4) { animation-delay: .24s; }
-    header > .wrap > *:nth-child(5) { animation-delay: .32s; }
-    @keyframes in { from { opacity: 0; transform: translateY(12px); } }
+    .hero > * { animation: up .8s ease both; }
+    .hero > *:nth-child(2) { animation-delay: .08s; } .hero > *:nth-child(3) { animation-delay: .16s; }
+    .hero > *:nth-child(4) { animation-delay: .24s; } .hero > *:nth-child(5) { animation-delay: .32s; }
+    @keyframes up { from { opacity: 0; transform: translateY(16px); } }
+
+    /* Dark mode */
+    @media (prefers-color-scheme: dark) {
+      :root { --ink: #ededed; --muted: #a1a1a1; --line: #262626; --bg: #0a0a0a; --card: #111; --chip: #1a1a1a; --accent: #8b85ff; }
+      nav { background: rgba(10,10,10,.8); }
+      nav .links .btn, .b.p { background: #ededed; color: #0a0a0a; border-color: #ededed; }
+      nav .links .btn:hover { color: #0a0a0a; }
+      .about p, .job p, .tags span { color: #cfcfcf; }
+      .card .img { background: linear-gradient(135deg, #17162b, #0f1d24); }
+      .contact { background: #141414; border: 1px solid var(--line); }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .reveal { opacity: 1; transform: none; transition: none; }
-      header > .wrap > * { animation: none; }
-      .shot img { transition: none; }
+      .hero > *, .pill i { animation: none; }
     }
 
-    @media (max-width: 680px) {
-      body { font-size: 16px; }
-      nav .links { display: none; }
-      header { padding: 56px 0 44px; }
-      h1 { font-size: 32px; }
-      header p { font-size: 17px; }
-      .stats { grid-template-columns: 1fr; }
-      .stat { border-right: 0; border-bottom: 1px solid var(--line); }
-      .stat:last-child { border-bottom: 0; }
-      .project { grid-template-columns: 1fr; gap: 16px; }
-      .shot { width: 100%; height: 200px; order: -1; }
-      .job, .skills { grid-template-columns: 1fr; gap: 2px; }
-      .job { padding-bottom: 24px; }
-      .skills dd { margin-bottom: 12px; }
+    @media (max-width: 860px) {
+      nav .links a:not(.btn) { display: none; }
+      .hero { padding: 70px 0 56px; }
+      h1 { font-size: 40px; letter-spacing: -1.5px; }
+      .hero p { font-size: 17px; }
+      .stack { gap: 18px; margin-top: 44px; }
+      section { padding: 64px 0; }
+      h2 { font-size: 30px; }
+      .about, .grid { grid-template-columns: 1fr; gap: 28px; }
+      .skills { grid-template-columns: 1fr 1fr; }
+      .card .img { height: 210px; padding: 20px 20px 0; }
+      .job { grid-template-columns: 1fr; }
+      .job .when { grid-row: auto; grid-column: auto; text-align: left; }
+      .contact { padding: 50px 24px; border-radius: 22px; }
     }
+    @media (max-width: 480px) { .skills { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <nav>
     <div class="wrap">
-      <a class="name" href="#">Ahsan Baig Chughtai</a>
+      <a class="logo" href="#"><img src="assets/profile.jpg" alt="">Ahsan Baig Chughtai</a>
       <div class="links">
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a class="btn" href="#contact">Contact</a>
       </div>
     </div>
   </nav>
 
-  <header>
-    <div class="wrap">
-      <img src="assets/profile.jpg" alt="Ahsan Baig Chughtai">
-      <div class="mono">Co-founder &amp; Developer @ Pintern</div>
-      <h1>I build systems that run themselves.</h1>
-      <p>AI automation pipelines, Flutter apps and IoT systems, plus 2+ years of remote operations for UK and global teams.</p>
-      <div class="links-row">
-        <a href="mailto:Ahsanchughtai.work@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
-        <a href="https://github.com/abchughtai786">GitHub</a>
+  <div class="wrap">
+    <header class="hero">
+      <span class="pill"><i></i> Co-founder @ Pintern · open to work</span>
+      <h1>Building <span class="grad">AI automation</span> that runs real businesses</h1>
+      <p>I design pipelines, apps and systems that replace manual work, from AI job screening to Flutter apps and IoT.</p>
+      <div class="btns">
+        <a class="b p" href="#projects">View projects</a>
+        <a class="b" href="#contact">Get in touch →</a>
       </div>
-    </div>
-  </header>
+      <div class="stack"><span>Python</span><span>Node.js</span><span>Flutter</span><span>Firebase</span><span>Docker</span><span>n8n</span><span>Grafana</span></div>
+    </header>
 
-  <main class="wrap">
     <section id="about" class="reveal">
-      <h2>About</h2>
+      <div class="label">About</div>
+      <h2>I turn slow, manual work into systems that run themselves.</h2>
       <div class="about">
-        <p>I like turning slow, repetitive work into systems that run on their own. At Pintern, which I co-founded, finding, checking and publishing opportunities for students used to be done by hand every day. I built the pipeline that now does it automatically, with AI screening out scams before anything goes live.</p>
-        <p>Before that, I spent 2+ years in remote operations for UK and global teams: data validation, reporting and e-commerce account management. It taught me to care about accuracy and to build things that don't break quietly.</p>
-        <p>Outside work, I run my own Linux home server and built an IoT system that controls my home's water pumps. Right now I'm learning how to train and run my own AI models.</p>
-      </div>
-      <div class="stats">
-        <div class="stat"><b>110,000+</b><span>audience reached through Pintern</span></div>
-        <div class="stat"><b>4</b><span>open-source projects, all tested</span></div>
-        <div class="stat"><b>2+ years</b><span>remote work, UK and global</span></div>
+        <div>
+          <p>At <b>Pintern</b>, which I co-founded, finding, checking and publishing opportunities for students used to be done by hand every day. I built the pipeline that now does it automatically, with AI screening out scams before anything goes live.</p>
+          <p>Before that, I spent 2+ years in remote operations for UK and global teams: data validation, reporting and e-commerce account management. It taught me to care about accuracy and to build things that don't break quietly.</p>
+          <p>Outside work, I run my own Linux home server and built an IoT system that controls my home's water pumps. Right now I'm learning how to train and run my own AI models.</p>
+        </div>
+        <div class="stats">
+          <div class="stat"><b class="grad">110,000+</b><span>audience reached through Pintern</span></div>
+          <div class="stat"><b>4</b><span>open-source projects, all with automated tests</span></div>
+          <div class="stat"><b>2+ years</b><span>remote work for UK and global teams</span></div>
+        </div>
       </div>
     </section>
 
     <section id="projects" class="reveal">
-      <h2>Projects</h2>
-
-      <div class="project">
-        <div>
-          <h3>Automated Job Posting Pipeline</h3>
-          <p>Built for Pintern. Finds, verifies and publishes job listings automatically, with AI screening that catches scams and duplicates.</p>
-          <div class="tech mono">Node.js · AI / LLM · SEO · 47 tests</div>
-          <div class="actions"><a href="https://github.com/abchughtai786/automated-job-posting-pipeline">Code ↗</a></div>
+      <div class="label">Projects</div>
+      <h2>Featured work</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="img"><img src="assets/job-pipeline.jpg" alt="Pipeline demo output" loading="lazy"></div>
+          <div class="body">
+            <h3>Automated Job Posting Pipeline</h3>
+            <p>Built for Pintern. Finds, verifies and publishes job listings automatically, with AI screening that catches scams and duplicates.</p>
+            <div class="tags"><span>Node.js</span><span>AI / LLM</span><span>SEO</span><span>47 tests</span></div>
+            <div class="links"><a href="https://github.com/abchughtai786/automated-job-posting-pipeline">View code →</a></div>
+          </div>
         </div>
-        <div class="shot"><img src="assets/job-pipeline.jpg" alt="Pipeline demo output" loading="lazy"></div>
-      </div>
-
-      <div class="project">
-        <div>
-          <h3>Pintern: Flutter App Demo</h3>
-          <p>Student jobs and scholarships app with student, employer, ambassador and admin flows. Runs in your browser.</p>
-          <div class="tech mono">Flutter · Dart · Firebase · 29 tests</div>
-          <div class="actions"><a href="https://abchughtai786.github.io/pintern-portfolio-demo/">Live demo ↗</a><a href="https://github.com/abchughtai786/pintern-portfolio-demo">Code ↗</a></div>
+        <div class="card">
+          <div class="img phone"><img src="assets/pintern-app.jpg" alt="Pintern app screen" loading="lazy"></div>
+          <div class="body">
+            <h3>Pintern: Flutter App Demo</h3>
+            <p>Student jobs and scholarships app with student, employer, ambassador and admin flows. Try it right in your browser.</p>
+            <div class="tags"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>29 tests</span></div>
+            <div class="links"><a href="https://abchughtai786.github.io/pintern-portfolio-demo/">Live demo →</a><a href="https://github.com/abchughtai786/pintern-portfolio-demo">View code →</a></div>
+          </div>
         </div>
-        <div class="shot"><img src="assets/pintern-app.jpg" alt="Pintern app screen" loading="lazy"></div>
-      </div>
-
-      <div class="project">
-        <div>
-          <h3>Smart Water Management IoT</h3>
-          <p>A real home system that monitors two water tanks and runs the pumps automatically, with dry-run protection and phone alerts.</p>
-          <div class="tech mono">Home Assistant · MQTT · ESP32 · IoT</div>
-          <div class="actions"><a href="https://github.com/abchughtai786/smart-water-management-iot">Code ↗</a></div>
+        <div class="card">
+          <div class="img"><img src="assets/water-iot.jpg" alt="Water tank dashboard" loading="lazy"></div>
+          <div class="body">
+            <h3>Smart Water Management IoT</h3>
+            <p>A real home system that monitors two water tanks and runs the pumps automatically, with dry-run protection and phone alerts.</p>
+            <div class="tags"><span>Home Assistant</span><span>MQTT</span><span>ESP32</span><span>IoT</span></div>
+            <div class="links"><a href="https://github.com/abchughtai786/smart-water-management-iot">View code →</a></div>
+          </div>
         </div>
-        <div class="shot"><img src="assets/water-iot.jpg" alt="Water tank dashboard" loading="lazy"></div>
-      </div>
-
-      <div class="project">
-        <div>
-          <h3>Home Server Monitoring</h3>
-          <p>One-command monitoring for a Linux server: disk health warnings, resources and containers in one Grafana dashboard.</p>
-          <div class="tech mono">Grafana · InfluxDB · Telegraf · Docker</div>
-          <div class="actions"><a href="https://github.com/abchughtai786/home-server-monitoring">Code ↗</a></div>
+        <div class="card">
+          <div class="img"><img src="assets/server-monitoring.jpg" alt="Grafana dashboard" loading="lazy"></div>
+          <div class="body">
+            <h3>Home Server Monitoring</h3>
+            <p>One-command monitoring for a Linux server: disk health warnings, resources and containers in one Grafana dashboard.</p>
+            <div class="tags"><span>Grafana</span><span>InfluxDB</span><span>Telegraf</span><span>Docker</span></div>
+            <div class="links"><a href="https://github.com/abchughtai786/home-server-monitoring">View code →</a></div>
+          </div>
         </div>
-        <div class="shot"><img src="assets/server-monitoring.jpg" alt="Grafana dashboard" loading="lazy"></div>
       </div>
     </section>
 
     <section id="experience" class="reveal">
-      <h2>Experience</h2>
-      <div class="job">
-        <div class="when">2025 – Now</div>
-        <div>
+      <div class="label center">Experience</div>
+      <h2 class="center">Where I've worked</h2>
+      <div class="jobs">
+        <div class="job">
           <h3>Co-founder &amp; Developer</h3>
-          <div class="where">Pintern · Remote</div>
+          <div class="when">Mar 2025 – Present</div>
+          <div class="co">Pintern · Remote</div>
           <p>Co-founded a platform that helps students across Pakistan, Turkey and Egypt find verified internships, jobs and scholarships. Built the automated publishing pipeline, develop the Flutter app, and grew the audience to 110,000+.</p>
         </div>
-      </div>
-      <div class="job">
-        <div class="when">2025 – 2026</div>
-        <div>
+        <div class="job">
           <h3>Energy Campaign Specialist</h3>
-          <div class="where">Qynetic Marketing · United Kingdom, remote</div>
-          <p>Validated energy data, prepared reports and kept records accurate for a UK energy company.</p>
+          <div class="when">May 2025 – Apr 2026</div>
+          <div class="co">Qynetic Marketing · United Kingdom, remote</div>
+          <p>Validated energy data, prepared reports and kept records accurate for a UK energy company, working closely with the technical team.</p>
         </div>
-      </div>
-      <div class="job">
-        <div class="when">2024 – 2025</div>
-        <div>
+        <div class="job">
           <h3>E-commerce Account Manager</h3>
-          <div class="where">POP - Plus One Percent · Remote</div>
-          <p>Managed and grew 4+ seller accounts on Daraz: listings, sales analysis, inventory and customer service.</p>
+          <div class="when">Feb 2024 – Jan 2025</div>
+          <div class="co">POP - Plus One Percent · Remote</div>
+          <p>Managed and grew 4+ seller accounts on Daraz: listings, sales analysis, inventory, logistics and customer service.</p>
         </div>
       </div>
     </section>
 
     <section id="skills" class="reveal">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <dt>AI &amp; automation</dt><dd>Workflow automation, LLMs, prompt design, n8n, API integration</dd>
-        <dt>Development</dt><dd>Python, JavaScript / Node.js, Flutter / Dart, Firebase, SQL, Git</dd>
-        <dt>Systems &amp; IoT</dt><dd>Linux, Docker, Grafana, Home Assistant, MQTT, ESP32 / ESP8266</dd>
-        <dt>Business</dt><dd>Digital marketing, SEO, data validation, e-commerce, remote operations</dd>
-      </dl>
-    </section>
-
-    <section id="contact" class="contact reveal">
-      <h2>Contact</h2>
-      <h3>Let's work together.</h3>
-      <p>Open to automation, AI integration and app development work.</p>
-      <div class="links-row">
-        <a href="mailto:Ahsanchughtai.work@gmail.com">Ahsanchughtai.work@gmail.com</a>
-        <a href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
-        <a href="https://github.com/abchughtai786">GitHub</a>
+      <div class="label">Skills</div>
+      <h2>What I work with</h2>
+      <div class="skills">
+        <div class="skill"><h4>AI &amp; Automation</h4><div class="tags"><span>Workflow automation</span><span>LLMs</span><span>Prompt design</span><span>n8n</span><span>APIs</span></div></div>
+        <div class="skill"><h4>Development</h4><div class="tags"><span>Python</span><span>Node.js</span><span>Flutter</span><span>Dart</span><span>Firebase</span><span>SQL</span><span>Git</span></div></div>
+        <div class="skill"><h4>Systems &amp; IoT</h4><div class="tags"><span>Linux</span><span>Docker</span><span>Grafana</span><span>Home Assistant</span><span>MQTT</span><span>ESP32</span></div></div>
+        <div class="skill"><h4>Business</h4><div class="tags"><span>Digital marketing</span><span>SEO</span><span>Data validation</span><span>E-commerce</span><span>Remote ops</span></div></div>
       </div>
     </section>
-  </main>
 
-  <footer>
-    <div class="wrap">© 2026 Ahsan Baig Chughtai</div>
-  </footer>
+    <section id="contact" class="reveal">
+      <div class="contact">
+        <h2>Let's build something together</h2>
+        <p>Open to automation, AI integration and app development work.</p>
+        <div class="btns">
+          <a class="b" href="mailto:Ahsanchughtai.work@gmail.com">Email me</a>
+          <a class="b o" href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
+          <a class="b o" href="https://github.com/abchughtai786">GitHub</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <footer>© 2026 Ahsan Baig Chughtai</footer>
 
   <script>
     // Fade sections in as they scroll into view; show everything if the browser lacks support.
@@ -259,7 +298,7 @@
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(entries => entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      }), { threshold: 0.1 });
+      }), { threshold: 0.08 });
       items.forEach(el => io.observe(el));
     } else {
       items.forEach(el => el.classList.add('visible'));
