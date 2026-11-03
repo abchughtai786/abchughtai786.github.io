@@ -3,306 +3,395 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ahsan Baig Chughtai | AI Automation & App Developer</title>
-  <meta name="description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that replace manual work.">
-  <meta property="og:title" content="Ahsan Baig Chughtai | AI Automation & App Developer">
-  <meta property="og:description" content="Co-founder of Pintern. I build AI automation pipelines, Flutter apps and IoT systems that replace manual work.">
+  <title>Ahsan Baig Chughtai</title>
+  <meta name="description" content="I co-founded Pintern and write the software behind it: automation pipelines, a Flutter app, and the servers they run on.">
+  <meta property="og:title" content="Ahsan Baig Chughtai">
+  <meta property="og:description" content="I co-founded Pintern and write the software behind it: automation pipelines, a Flutter app, and the servers they run on.">
   <meta property="og:image" content="https://abchughtai786.github.io/assets/og.jpg">
   <meta property="og:url" content="https://abchughtai786.github.io/">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/profile.jpg">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%231a1a1a'/><text x='16' y='22' font-family='Georgia,serif' font-size='18' fill='%23f7f6f3' text-anchor='middle'>a</text></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #0a0a0a; --muted: #666; --line: #eaeaea; --bg: #fafafa; --card: #fff;
-      --accent: #635bff; --accent2: #00b4ff; --chip: #f4f4f5;
+      --paper: #f7f6f3; --ink: #1a1a1a; --muted: #75736e; --faint: #a9a69f; --rule: #e3e1db;
+      --hover: #efede8; --accent: #d9481e;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'IBM Plex Sans', system-ui, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, monospace;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper: #121211; --ink: #e8e6e1; --muted: #9c9a94; --faint: #6b6964; --rule: #2a2927; --hover: #1b1b1a; --accent: #ff6a3d; }
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    body { font-family: Inter, system-ui, sans-serif; color: var(--ink); background: var(--bg);
-           line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 16px; line-height: 1.65;
+           -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--accent); color: #fff; }
     a { color: inherit; text-decoration: none; }
-    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+    .u { background-image: linear-gradient(currentColor, currentColor); background-size: 0% 1px; background-repeat: no-repeat;
+         background-position: 0 100%; transition: background-size .3s ease; }
+    .u:hover { background-size: 100% 1px; }
+    .mono { font-family: var(--mono); font-size: 13px; letter-spacing: -.1px; }
+    .muted { color: var(--muted); }
 
-    /* Nav */
-    nav { position: sticky; top: 0; z-index: 10; background: rgba(250,250,250,.82);
-          backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
-    nav .wrap { display: flex; justify-content: space-between; align-items: center; height: 64px; }
-    .logo { display: flex; align-items: center; gap: 10px; font-weight: 700; }
-    .logo img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
-    nav .links a { margin-left: 28px; color: var(--muted); font-size: 15px; transition: color .2s; }
-    nav .links a:hover { color: var(--ink); }
-    nav .links .btn { background: var(--ink); color: #fff; padding: 8px 18px; border-radius: 999px; }
-    nav .links .btn:hover { color: #fff; opacity: .85; }
+    .layout { display: grid; grid-template-columns: 340px 1fr; gap: 80px; max-width: 1180px; margin: 0 auto; padding: 0 48px; }
+    .layout > * { min-width: 0; } /* let wide children (the diagram) scroll instead of stretching the page */
 
-    /* Hero */
-    .hero { text-align: center; padding: 110px 0 80px; position: relative; }
-    .hero::before { content: ""; position: absolute; left: 50%; top: 30px; width: 760px; height: 380px; max-width: 100%;
-                    transform: translateX(-50%); background: radial-gradient(closest-side, rgba(99,91,255,.18), transparent); z-index: -1; }
-    .pill { display: inline-flex; gap: 8px; align-items: center; border: 1px solid var(--line); background: var(--card);
-            padding: 6px 14px; border-radius: 999px; font-size: 14px; color: var(--muted); }
-    .pill i { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; display: inline-block;
-              box-shadow: 0 0 0 0 rgba(34,197,94,.6); animation: ping 2s infinite; }
-    @keyframes ping { 70% { box-shadow: 0 0 0 7px rgba(34,197,94,0); } 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); } }
-    h1 { font-size: 64px; line-height: 1.05; font-weight: 800; letter-spacing: -2.5px; margin: 26px auto 22px; max-width: 840px; }
-    .grad { background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero p { font-size: 20px; color: var(--muted); max-width: 640px; margin: 0 auto; }
-    .btns { display: flex; gap: 12px; justify-content: center; margin-top: 34px; flex-wrap: wrap; }
-    .b { padding: 12px 24px; border-radius: 999px; font-weight: 600; border: 1px solid var(--line); background: var(--card); transition: transform .2s, box-shadow .2s; }
-    .b:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.08); }
-    .b.p { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .stack { display: flex; justify-content: center; gap: 34px; flex-wrap: wrap; margin-top: 64px; color: #9a9a9a; font-weight: 600; font-size: 15px; }
+    /* Left column */
+    aside { position: sticky; top: 0; height: 100vh; padding: 72px 0 40px; display: flex; flex-direction: column; }
+    .name { font-family: var(--serif); font-size: 44px; font-weight: 400; line-height: 1; letter-spacing: -.5px; }
+    .role { margin-top: 12px; font-size: 16px; }
+    .role b { font-weight: 500; }
+    .intro { margin-top: 18px; color: var(--muted); max-width: 300px; }
+    .toc { margin-top: 48px; list-style: none; }
+    .toc a { display: flex; align-items: center; gap: 14px; padding: 6px 0; color: var(--faint); font-family: var(--mono); font-size: 12.5px;
+             text-transform: uppercase; letter-spacing: 1px; transition: color .2s; }
+    .toc a::before { content: ""; width: 24px; height: 1px; background: currentColor; transition: width .25s; }
+    .toc a:hover, .toc a.on { color: var(--ink); }
+    .toc a.on::before, .toc a:hover::before { width: 52px; }
+    .side-foot { margin-top: auto; }
+    .elsewhere { display: flex; gap: 18px; margin-bottom: 18px; font-size: 15px; }
+    .kbd { display: inline-flex; align-items: center; gap: 6px; color: var(--faint); cursor: pointer; }
+    kbd { font-family: var(--mono); font-size: 11px; border: 1px solid var(--rule); border-bottom-width: 2px; border-radius: 4px; padding: 1px 5px; color: var(--muted); }
 
-    /* Sections */
-    section { padding: 90px 0; }
-    .label { font-size: 14px; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
-    h2 { font-size: 40px; font-weight: 800; letter-spacing: -1.2px; line-height: 1.15; margin: 8px 0 44px; }
-    .center { text-align: center; }
+    /* Right column */
+    main { padding: 72px 0 100px; }
+    section { padding-bottom: 96px; scroll-margin-top: 40px; }
+    .h { font-family: var(--mono); font-size: 12.5px; text-transform: uppercase; letter-spacing: 1px; color: var(--faint);
+         margin-bottom: 28px; display: flex; align-items: center; gap: 12px; }
+    .h::after { content: ""; flex: 1; height: 1px; background: var(--rule); }
+    .lede { font-family: var(--serif); font-size: 30px; line-height: 1.25; letter-spacing: -.2px; margin-bottom: 26px; }
+    .lede em { color: var(--accent); }
+    .prose p { margin-bottom: 16px; max-width: 620px; }
+    .prose p:last-child { margin-bottom: 0; }
 
-    /* About */
-    .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 56px; align-items: start; }
-    .about p { color: #333; font-size: 17.5px; margin-bottom: 16px; }
-    .stats { display: grid; gap: 16px; }
-    .stat { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px 24px; }
-    .stat b { display: block; font-size: 34px; font-weight: 800; letter-spacing: -1px; }
-    .stat span { color: var(--muted); font-size: 15px; }
+    /* Now */
+    .now { border-left: 2px solid var(--accent); padding: 4px 0 4px 20px; max-width: 620px; }
+    .now .mono { color: var(--accent); margin-bottom: 4px; display: block; }
 
-    /* Projects */
-    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
-    .card { background: var(--card); border: 1px solid var(--line); border-radius: 20px; overflow: hidden;
-            box-shadow: 0 1px 2px rgba(0,0,0,.04); transition: transform .25s, box-shadow .25s; display: flex; flex-direction: column; }
-    .card:hover { box-shadow: 0 24px 48px rgba(0,0,0,.08); transform: translateY(-4px); }
-    .card .img { height: 250px; background: linear-gradient(135deg, #f3f2ff, #eefbff); overflow: hidden; padding: 28px 28px 0; }
-    .card .img img { width: 100%; height: 100%; object-fit: cover; object-position: top; border-radius: 10px 10px 0 0;
-                     box-shadow: 0 10px 30px rgba(0,0,0,.14); transition: transform .4s; }
-    .card:hover .img img { transform: scale(1.03); }
-    .card .img.phone { padding: 22px 0 0; display: flex; justify-content: center; }
-    .card .img.phone img { width: auto; height: 120%; border-radius: 14px 14px 0 0; }
-    .card .body { padding: 22px 26px 26px; display: flex; flex-direction: column; flex: 1; }
-    .card h3 { font-size: 20px; margin-bottom: 4px; }
-    .card p { color: var(--muted); font-size: 15.5px; flex: 1; }
-    .tags { display: flex; gap: 6px; flex-wrap: wrap; margin: 14px 0 16px; }
-    .tags span { font-size: 12.5px; background: var(--chip); border: 1px solid var(--line); padding: 3px 10px; border-radius: 999px; color: #444; }
-    .card .links a { font-weight: 600; font-size: 15px; margin-right: 18px; color: var(--accent); }
-    .card .links a:hover { text-decoration: underline; }
+    /* Case studies */
+    .case { padding: 28px 24px; margin: 0 -24px; border-radius: 6px; transition: background .2s; }
+    .case:hover { background: var(--hover); }
+    .case + .case { border-top: 1px solid var(--rule); }
+    .case-top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+    .case h3 { font-family: var(--serif); font-size: 28px; font-weight: 400; line-height: 1.15; }
+    .case h3 a .arr { display: inline-block; font-family: var(--sans); font-size: 18px; transition: transform .2s; color: var(--faint); }
+    .case:hover h3 a .arr { transform: translate(3px, -3px); color: var(--accent); }
+    .case .when { white-space: nowrap; color: var(--faint); }
+    .case .sum { margin: 8px 0 16px; max-width: 620px; }
+    .pab { display: grid; grid-template-columns: 96px 1fr; gap: 6px 16px; font-size: 15px; max-width: 640px; }
+    .pab dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--faint); padding-top: 3px; }
+    .pab dd { color: var(--muted); }
+    .pab dd b { color: var(--ink); font-weight: 500; }
+    .flow { margin: 20px 0 6px; overflow-x: auto; }
+    .flow svg { display: block; min-width: 560px; }
+    .flow text { font-family: var(--mono); font-size: 11px; fill: var(--muted); }
+    .flow rect { fill: var(--paper); stroke: var(--rule); }
+    .flow .hl rect { stroke: var(--accent); }
+    .flow .hl text { fill: var(--ink); }
+    .flow path, .flow line { stroke: var(--faint); fill: none; }
+    .stack { margin-top: 14px; color: var(--faint); }
+    .stack span + span::before { content: " / "; color: var(--rule); }
+    .links { margin-top: 10px; display: flex; gap: 18px; font-size: 15px; font-weight: 500; }
 
     /* Experience */
-    .jobs { max-width: 820px; margin: 0 auto; }
-    .job { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 26px 28px; margin-bottom: 16px;
-           display: grid; grid-template-columns: 1fr auto; gap: 4px 20px; }
-    .job h3 { font-size: 18px; }
-    .job .co { color: var(--accent); font-weight: 600; font-size: 15px; }
-    .job .when { color: var(--muted); font-size: 14px; text-align: right; grid-row: 1 / 3; grid-column: 2; padding-top: 2px; }
-    .job p { grid-column: 1 / -1; color: #444; font-size: 15.5px; margin-top: 8px; }
+    .row { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 18px 0; border-top: 1px solid var(--rule); }
+    .row:last-child { border-bottom: 1px solid var(--rule); }
+    .row .when { color: var(--faint); padding-top: 3px; }
+    .row h3 { font-size: 16.5px; font-weight: 600; }
+    .row .at { color: var(--muted); font-weight: 400; }
+    .row p { margin-top: 6px; color: var(--muted); font-size: 15px; max-width: 600px; }
 
-    /* Skills */
-    .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-    .skill { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
-    .skill h4 { font-size: 15px; margin-bottom: 12px; }
-    .skill .tags { margin: 0; }
+    /* Tools */
+    .tools { display: grid; grid-template-columns: 150px 1fr; gap: 10px 20px; font-size: 15.5px; }
+    .tools dt { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: .8px; color: var(--faint); padding-top: 4px; }
 
     /* Contact */
-    .contact { background: var(--ink); color: #fff; border-radius: 28px; padding: 70px 40px; text-align: center; position: relative; overflow: hidden; }
-    .contact::before { content: ""; position: absolute; inset: -40% -10% auto; height: 120%;
-                       background: radial-gradient(closest-side, rgba(99,91,255,.35), transparent); }
-    .contact > * { position: relative; }
-    .contact h2 { margin-bottom: 14px; }
-    .contact p { color: #a3a3a3; font-size: 18px; }
-    .contact .b { background: #fff; color: #0a0a0a; border-color: #fff; }
-    .contact .b.o { background: transparent; color: #fff; border-color: #444; }
+    .big { font-family: var(--serif); font-size: 46px; line-height: 1.1; letter-spacing: -.5px; }
+    .copy { cursor: pointer; border-bottom: 1px solid var(--rule); transition: border-color .2s; }
+    .copy:hover { border-color: var(--accent); }
+    footer { color: var(--faint); margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
 
-    footer { padding: 40px 0 50px; color: var(--muted); font-size: 14px; text-align: center; }
+    /* Toast + command palette */
+    .toast { position: fixed; bottom: 28px; left: 50%; transform: translate(-50%, 20px); opacity: 0; background: var(--ink); color: var(--paper);
+             padding: 10px 16px; border-radius: 6px; font-family: var(--mono); font-size: 13px; transition: .25s; pointer-events: none; z-index: 30; }
+    .toast.show { opacity: 1; transform: translate(-50%, 0); }
+    .palette { position: fixed; inset: 0; background: rgba(0,0,0,.25); display: none; align-items: flex-start; justify-content: center; padding-top: 18vh; z-index: 20; }
+    .palette.open { display: flex; }
+    .panel { width: min(520px, 92vw); background: var(--paper); border: 1px solid var(--rule); border-radius: 10px; box-shadow: 0 30px 80px rgba(0,0,0,.25); overflow: hidden; }
+    .panel input { width: 100%; border: 0; border-bottom: 1px solid var(--rule); background: transparent; color: var(--ink); padding: 16px 18px; font: inherit; font-size: 16px; outline: none; }
+    .panel ul { list-style: none; max-height: 320px; overflow: auto; padding: 6px; }
+    .panel li { padding: 10px 12px; border-radius: 6px; cursor: pointer; display: flex; justify-content: space-between; font-size: 15px; }
+    .panel li.sel { background: var(--hover); }
+    .panel li span { color: var(--faint); font-family: var(--mono); font-size: 12px; }
 
-    /* Scroll animations */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
-    .reveal.visible { opacity: 1; transform: none; }
-    .hero > * { animation: up .8s ease both; }
-    .hero > *:nth-child(2) { animation-delay: .08s; } .hero > *:nth-child(3) { animation-delay: .16s; }
-    .hero > *:nth-child(4) { animation-delay: .24s; } .hero > *:nth-child(5) { animation-delay: .32s; }
-    @keyframes up { from { opacity: 0; transform: translateY(16px); } }
+    /* Entrance */
+    .fade { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+    .fade.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .fade { opacity: 1; transform: none; transition: none; } * { scroll-behavior: auto !important; } }
 
-    /* Dark mode */
-    @media (prefers-color-scheme: dark) {
-      :root { --ink: #ededed; --muted: #a1a1a1; --line: #262626; --bg: #0a0a0a; --card: #111; --chip: #1a1a1a; --accent: #8b85ff; }
-      nav { background: rgba(10,10,10,.8); }
-      nav .links .btn, .b.p { background: #ededed; color: #0a0a0a; border-color: #ededed; }
-      nav .links .btn:hover { color: #0a0a0a; }
-      .about p, .job p, .tags span { color: #cfcfcf; }
-      .card .img { background: linear-gradient(135deg, #17162b, #0f1d24); }
-      .contact { background: #141414; border: 1px solid var(--line); }
+    @media (max-width: 960px) {
+      .layout { grid-template-columns: 1fr; gap: 0; padding: 0 22px; }
+      aside { position: static; height: auto; padding: 48px 0 8px; }
+      .toc, .kbd { display: none; }
+      .side-foot { margin-top: 24px; }
+      main { padding-top: 32px; }
+      section { padding-bottom: 72px; }
+      .lede { font-size: 25px; }
+      .case { margin: 0 -12px; padding: 24px 12px; }
+      .case h3 { font-size: 24px; }
+      .case-top { flex-direction: column; gap: 2px; }
+      .pab, .row, .tools { grid-template-columns: 1fr; gap: 2px; }
+      .pab dd { margin-bottom: 10px; }
+      .big { font-size: 34px; }
     }
-
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: none; transition: none; }
-      .hero > *, .pill i { animation: none; }
-    }
-
-    @media (max-width: 860px) {
-      nav .links a:not(.btn) { display: none; }
-      .hero { padding: 70px 0 56px; }
-      h1 { font-size: 40px; letter-spacing: -1.5px; }
-      .hero p { font-size: 17px; }
-      .stack { gap: 18px; margin-top: 44px; }
-      section { padding: 64px 0; }
-      h2 { font-size: 30px; }
-      .about, .grid { grid-template-columns: 1fr; gap: 28px; }
-      .skills { grid-template-columns: 1fr 1fr; }
-      .card .img { height: 210px; padding: 20px 20px 0; }
-      .job { grid-template-columns: 1fr; }
-      .job .when { grid-row: auto; grid-column: auto; text-align: left; }
-      .contact { padding: 50px 24px; border-radius: 22px; }
-    }
-    @media (max-width: 480px) { .skills { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="wrap">
-      <a class="logo" href="#"><img src="assets/profile.jpg" alt="">Ahsan Baig Chughtai</a>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a class="btn" href="#contact">Contact</a>
+  <div class="layout">
+    <aside>
+      <div>
+        <h1 class="name">Ahsan Baig Chughtai</h1>
+        <div class="role"><b>Co-founder &amp; developer</b> at Pintern</div>
+        <p class="intro">I write the software that does the boring work: pipelines, apps, and the servers they run on.</p>
       </div>
-    </div>
-  </nav>
-
-  <div class="wrap">
-    <header class="hero">
-      <span class="pill"><i></i> Co-founder @ Pintern · open to work</span>
-      <h1>Building <span class="grad">AI automation</span> that runs real businesses</h1>
-      <p>I design pipelines, apps and systems that replace manual work, from AI job screening to Flutter apps and IoT.</p>
-      <div class="btns">
-        <a class="b p" href="#projects">View projects</a>
-        <a class="b" href="#contact">Get in touch →</a>
-      </div>
-      <div class="stack"><span>Python</span><span>Node.js</span><span>Flutter</span><span>Firebase</span><span>Docker</span><span>n8n</span><span>Grafana</span></div>
-    </header>
-
-    <section id="about" class="reveal">
-      <div class="label">About</div>
-      <h2>I turn slow, manual work into systems that run themselves.</h2>
-      <div class="about">
-        <div>
-          <p>At <b>Pintern</b>, which I co-founded, finding, checking and publishing opportunities for students used to be done by hand every day. I built the pipeline that now does it automatically, with AI screening out scams before anything goes live.</p>
-          <p>Before that, I spent 2+ years in remote operations for UK and global teams: data validation, reporting and e-commerce account management. It taught me to care about accuracy and to build things that don't break quietly.</p>
-          <p>Outside work, I run my own Linux home server and built an IoT system that controls my home's water pumps. Right now I'm learning how to train and run my own AI models.</p>
+      <nav>
+        <ul class="toc">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="side-foot">
+        <div class="elsewhere">
+          <a class="u" href="https://github.com/abchughtai786">GitHub</a>
+          <a class="u" href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
+          <span class="u copy" data-copy>Email</span>
         </div>
-        <div class="stats">
-          <div class="stat"><b class="grad">110,000+</b><span>audience reached through Pintern</span></div>
-          <div class="stat"><b>4</b><span>open-source projects, all with automated tests</span></div>
-          <div class="stat"><b>2+ years</b><span>remote work for UK and global teams</span></div>
-        </div>
+        <span class="kbd mono" id="open-palette">Press <kbd>Ctrl</kbd><kbd>K</kbd> to navigate</span>
       </div>
-    </section>
+    </aside>
 
-    <section id="projects" class="reveal">
-      <div class="label">Projects</div>
-      <h2>Featured work</h2>
-      <div class="grid">
-        <div class="card">
-          <div class="img"><img src="assets/job-pipeline.jpg" alt="Pipeline demo output" loading="lazy"></div>
-          <div class="body">
-            <h3>Automated Job Posting Pipeline</h3>
-            <p>Built for Pintern. Finds, verifies and publishes job listings automatically, with AI screening that catches scams and duplicates.</p>
-            <div class="tags"><span>Node.js</span><span>AI / LLM</span><span>SEO</span><span>47 tests</span></div>
-            <div class="links"><a href="https://github.com/abchughtai786/automated-job-posting-pipeline">View code →</a></div>
+    <main>
+      <section id="about" class="fade">
+        <div class="h">About</div>
+        <p class="lede">I co-founded Pintern, and I wrote the pipeline that runs it. It reads job posts, <em>throws out the scams</em>, and publishes the rest without anyone touching it.</p>
+        <div class="prose">
+          <p>Before code, I spent two years in remote operations for UK and international teams: checking data, writing reports, running Daraz seller accounts. That work made me allergic to anything that breaks quietly, so what I build fails loudly and safely instead.</p>
+          <p>At home I run my own Linux server. It controls our water pumps, watches its own disks, and recently warned me that one of them is starting to fail, before I lost anything on it.</p>
+        </div>
+        <div class="now" style="margin-top:32px">
+          <span class="mono">Now · November 2026</span>
+          Learning to train small AI models. First goal: one that spots fake job posts, so Pintern can screen listings on its own server instead of calling an outside AI service.
+        </div>
+      </section>
+
+      <section id="work" class="fade">
+        <div class="h">Selected work</div>
+
+        <article class="case">
+          <div class="case-top">
+            <h3><a href="https://github.com/abchughtai786/automated-job-posting-pipeline">Job posting pipeline <span class="arr">↗</span></a></h3>
+            <span class="when mono">Pintern · 2025</span>
           </div>
-        </div>
-        <div class="card">
-          <div class="img phone"><img src="assets/pintern-app.jpg" alt="Pintern app screen" loading="lazy"></div>
-          <div class="body">
-            <h3>Pintern: Flutter App Demo</h3>
-            <p>Student jobs and scholarships app with student, employer, ambassador and admin flows. Try it right in your browser.</p>
-            <div class="tags"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>29 tests</span></div>
-            <div class="links"><a href="https://abchughtai786.github.io/pintern-portfolio-demo/">Live demo →</a><a href="https://github.com/abchughtai786/pintern-portfolio-demo">View code →</a></div>
+          <p class="sum">The system that keeps Pintern's listings fresh.</p>
+          <dl class="pab">
+            <dt>Problem</dt><dd>Finding, checking and posting opportunities was a daily manual job, and fake listings asking for fees or bank details kept slipping through.</dd>
+            <dt>Built</dt><dd>A Node.js pipeline with <b>no dependencies</b>: rule checks first, then an AI review. If the AI can't decide, the post goes to a person, <b>never straight to the site</b>. Reworded duplicates from different sources are caught too.</dd>
+            <dt>Result</dt><dd>Posts publish themselves with SEO pages and search indexing. <b>47 tests</b> run on every change, and progress is saved per job, so a crash never posts anything twice.</dd>
+          </dl>
+          <div class="flow" aria-hidden="true">
+            <svg viewBox="0 0 640 60" width="100%" height="60">
+              <g><rect x="1" y="16" width="78" height="28" rx="4"/><text x="40" y="34" text-anchor="middle">collect</text></g>
+              <line x1="79" y1="30" x2="99" y2="30"/>
+              <g class="hl"><rect x="99" y="16" width="100" height="28" rx="4"/><text x="149" y="34" text-anchor="middle">rules + AI</text></g>
+              <line x1="199" y1="30" x2="219" y2="30"/>
+              <g><rect x="219" y="16" width="78" height="28" rx="4"/><text x="258" y="34" text-anchor="middle">dedupe</text></g>
+              <line x1="297" y1="30" x2="317" y2="30"/>
+              <g><rect x="317" y="16" width="66" height="28" rx="4"/><text x="350" y="34" text-anchor="middle">rank</text></g>
+              <line x1="383" y1="30" x2="403" y2="30"/>
+              <g><rect x="403" y="16" width="78" height="28" rx="4"/><text x="442" y="34" text-anchor="middle">publish</text></g>
+              <line x1="481" y1="30" x2="501" y2="30"/>
+              <g><rect x="501" y="16" width="70" height="28" rx="4"/><text x="536" y="34" text-anchor="middle">index</text></g>
+              <path d="M149 44 v10 h440" stroke-dasharray="3 3"/>
+              <text x="596" y="57">review</text>
+            </svg>
           </div>
-        </div>
-        <div class="card">
-          <div class="img"><img src="assets/water-iot.jpg" alt="Water tank dashboard" loading="lazy"></div>
-          <div class="body">
-            <h3>Smart Water Management IoT</h3>
-            <p>A real home system that monitors two water tanks and runs the pumps automatically, with dry-run protection and phone alerts.</p>
-            <div class="tags"><span>Home Assistant</span><span>MQTT</span><span>ESP32</span><span>IoT</span></div>
-            <div class="links"><a href="https://github.com/abchughtai786/smart-water-management-iot">View code →</a></div>
+          <div class="stack mono"><span>Node.js</span><span>LLM</span><span>WordPress API</span><span>GitHub Actions</span></div>
+        </article>
+
+        <article class="case">
+          <div class="case-top">
+            <h3><a href="https://abchughtai786.github.io/pintern-portfolio-demo/">Pintern app <span class="arr">↗</span></a></h3>
+            <span class="when mono">Pintern · 2025</span>
           </div>
-        </div>
-        <div class="card">
-          <div class="img"><img src="assets/server-monitoring.jpg" alt="Grafana dashboard" loading="lazy"></div>
-          <div class="body">
-            <h3>Home Server Monitoring</h3>
-            <p>One-command monitoring for a Linux server: disk health warnings, resources and containers in one Grafana dashboard.</p>
-            <div class="tags"><span>Grafana</span><span>InfluxDB</span><span>Telegraf</span><span>Docker</span></div>
-            <div class="links"><a href="https://github.com/abchughtai786/home-server-monitoring">View code →</a></div>
+          <p class="sum">A Flutter demo of the app's core flows. It runs in your browser with fictional data.</p>
+          <dl class="pab">
+            <dt>Problem</dt><dd>Students, employers, campus ambassadors and admins all need different things from the same listings, and an employer must never be able to approve their own post.</dd>
+            <dt>Built</dt><dd>Four role-based home screens on one codebase. Permissions are checked <b>in the data layer, not by hiding buttons</b>: the post form even tries to submit itself as approved, and a test proves it gets forced back to pending.</dd>
+            <dt>Result</dt><dd><b>29 tests</b>, including full flows: employer posts, admin approves, student applies. Offline mode shows proper error and retry states.</dd>
+          </dl>
+          <div class="stack mono"><span>Flutter</span><span>Dart</span><span>Firebase</span></div>
+          <div class="links"><a class="u" href="https://abchughtai786.github.io/pintern-portfolio-demo/">Try the demo</a><a class="u" href="https://github.com/abchughtai786/pintern-portfolio-demo">Source</a></div>
+        </article>
+
+        <article class="case">
+          <div class="case-top">
+            <h3><a href="https://github.com/abchughtai786/smart-water-management-iot">Water tank automation <span class="arr">↗</span></a></h3>
+            <span class="when mono">Home · ongoing</span>
           </div>
-        </div>
-      </div>
-    </section>
+          <p class="sum">The system that keeps water in our house without anyone switching a pump.</p>
+          <dl class="pab">
+            <dt>Problem</dt><dd>Two tanks and two pumps, filled by hand. A pump left running on an empty tank can burn out.</dd>
+            <dt>Built</dt><dd>Float switches on ESP boards report levels over MQTT to Home Assistant. <b>Safety rules can only stop pumps, never start them</b>: dry-run protection, a 45 / 120 minute runtime limit, and a full stop if a sensor goes quiet for a minute.</dd>
+            <dt>Result</dt><dd>13 automations. Every config change is checked by Home Assistant's own validator in CI before it can reach the house.</dd>
+          </dl>
+          <div class="stack mono"><span>Home Assistant</span><span>MQTT</span><span>ESP32 / ESP8266</span><span>YAML</span></div>
+        </article>
 
-    <section id="experience" class="reveal">
-      <div class="label center">Experience</div>
-      <h2 class="center">Where I've worked</h2>
-      <div class="jobs">
-        <div class="job">
-          <h3>Co-founder &amp; Developer</h3>
-          <div class="when">Jan 2025 – Present</div>
-          <div class="co">Pintern · Remote</div>
-          <p>Co-founded a platform that helps students across Pakistan, Turkey and Egypt find verified internships, jobs and scholarships. Built the automated publishing pipeline, develop the Flutter app, and grew the audience to 110,000+.</p>
-        </div>
-        <div class="job">
-          <h3>Energy Campaign Specialist</h3>
-          <div class="when">May 2025 – Apr 2026</div>
-          <div class="co">Qynetic Marketing · United Kingdom, remote</div>
-          <p>Validated energy data, prepared reports and kept records accurate for a UK energy company, working closely with the technical team.</p>
-        </div>
-        <div class="job">
-          <h3>E-commerce Account Manager</h3>
-          <div class="when">Feb 2024 – Jan 2025</div>
-          <div class="co">Plotperty · Remote</div>
-          <p>Managed and grew 4+ seller accounts on Daraz: listings, sales analysis, inventory, logistics and customer service.</p>
-        </div>
-      </div>
-    </section>
+        <article class="case">
+          <div class="case-top">
+            <h3><a href="https://github.com/abchughtai786/home-server-monitoring">Server monitoring <span class="arr">↗</span></a></h3>
+            <span class="when mono">Home · 2026</span>
+          </div>
+          <p class="sum">One command to see whether a home server is healthy.</p>
+          <dl class="pab">
+            <dt>Problem</dt><dd>Disks on a small server fail slowly, then all at once. "Mounted" doesn't mean "writable".</dd>
+            <dt>Built</dt><dd>Telegraf, InfluxDB and Grafana in Docker Compose, with custom checks for disk writes and kernel disk errors. The database is never exposed, and the collector gets read-only access instead of a privileged container.</dd>
+            <dt>Result</dt><dd><b>It flagged a failing backup disk on my own server</b> while it still worked. CI starts the whole stack on every change and checks that all 13 metric types arrive.</dd>
+          </dl>
+          <div class="stack mono"><span>Grafana</span><span>InfluxDB</span><span>Telegraf</span><span>Docker</span></div>
+        </article>
+      </section>
 
-    <section id="skills" class="reveal">
-      <div class="label">Skills</div>
-      <h2>What I work with</h2>
-      <div class="skills">
-        <div class="skill"><h4>AI &amp; Automation</h4><div class="tags"><span>Workflow automation</span><span>LLMs</span><span>Prompt design</span><span>n8n</span><span>APIs</span></div></div>
-        <div class="skill"><h4>Development</h4><div class="tags"><span>Python</span><span>Node.js</span><span>Flutter</span><span>Dart</span><span>Firebase</span><span>SQL</span><span>Git</span></div></div>
-        <div class="skill"><h4>Systems &amp; IoT</h4><div class="tags"><span>Linux</span><span>Docker</span><span>Grafana</span><span>Home Assistant</span><span>MQTT</span><span>ESP32</span></div></div>
-        <div class="skill"><h4>Business</h4><div class="tags"><span>Digital marketing</span><span>SEO</span><span>Data validation</span><span>E-commerce</span><span>Remote ops</span></div></div>
-      </div>
-    </section>
-
-    <section id="contact" class="reveal">
-      <div class="contact">
-        <h2>Let's build something together</h2>
-        <p>Open to automation, AI integration and app development work.</p>
-        <div class="btns">
-          <a class="b" href="mailto:Ahsanchughtai.work@gmail.com">Email me</a>
-          <a class="b o" href="https://www.linkedin.com/in/ahsan-chughtai/">LinkedIn</a>
-          <a class="b o" href="https://github.com/abchughtai786">GitHub</a>
+      <section id="experience" class="fade">
+        <div class="h">Experience</div>
+        <div class="row">
+          <div class="when mono">2025 — now</div>
+          <div><h3>Co-founder &amp; Developer <span class="at">· Pintern</span></h3>
+            <p>Verified internships, jobs and scholarships for students in Pakistan, Turkey and Egypt, reaching 110,000+ people across our channels. I build the publishing pipeline and the app.</p></div>
         </div>
-      </div>
-    </section>
+        <div class="row">
+          <div class="when mono">2025 — 2026</div>
+          <div><h3>Energy Campaign Specialist <span class="at">· Qynetic Marketing</span></h3>
+            <p>Remote, for a UK energy company. Data validation, reporting and record keeping alongside the technical team.</p></div>
+        </div>
+        <div class="row">
+          <div class="when mono">2024 — 2025</div>
+          <div><h3>E-commerce Account Manager <span class="at">· Plotperty</span></h3>
+            <p>Ran 4+ Daraz seller accounts: listings, sales analysis, stock and customer service.</p></div>
+        </div>
+      </section>
+
+      <section id="tools" class="fade">
+        <div class="h">Tools I reach for</div>
+        <dl class="tools">
+          <dt>Languages</dt><dd>JavaScript (Node.js), Python, Dart, SQL</dd>
+          <dt>Building</dt><dd>Flutter, Firebase, n8n, LLM APIs, REST</dd>
+          <dt>Running</dt><dd>Linux, Docker, GitHub Actions, Grafana</dd>
+          <dt>Hardware</dt><dd>ESP32, ESP8266, MQTT, Home Assistant</dd>
+        </dl>
+      </section>
+
+      <section id="contact" class="fade">
+        <div class="h">Contact</div>
+        <p class="big">Got something slow and manual? <span class="copy" data-copy>Email me.</span></p>
+        <p class="muted" style="margin-top:14px">I'm on Pakistan time (UTC+5). <a class="u" href="mailto:Ahsanchughtai.work@gmail.com">Ahsanchughtai.work@gmail.com</a></p>
+        <footer class="mono">
+          <span>© 2026 Ahsan Baig Chughtai</span>
+          <span id="updated"></span>
+          <a class="u" href="https://github.com/abchughtai786/abchughtai786.github.io">View source</a>
+        </footer>
+      </section>
+    </main>
   </div>
 
-  <footer>© 2026 Ahsan Baig Chughtai</footer>
+  <div class="toast" id="toast"></div>
+  <div class="palette" id="palette" role="dialog" aria-label="Command menu">
+    <div class="panel">
+      <input id="q" placeholder="Where to?" autocomplete="off">
+      <ul id="results"></ul>
+    </div>
+  </div>
 
   <script>
-    // Fade sections in as they scroll into view; show everything if the browser lacks support.
-    const items = document.querySelectorAll('.reveal');
+    const EMAIL = 'Ahsanchughtai.work@gmail.com';
+
+    // Copy the email address on click; fall back to the mail app.
+    const toast = msg => {
+      const t = document.getElementById('toast');
+      t.textContent = msg; t.classList.add('show');
+      clearTimeout(t._h); t._h = setTimeout(() => t.classList.remove('show'), 1800);
+    };
+    const copyEmail = () => {
+      (navigator.clipboard ? navigator.clipboard.writeText(EMAIL) : Promise.reject())
+        .then(() => toast('Copied ' + EMAIL), () => { location.href = 'mailto:' + EMAIL; });
+    };
+    document.querySelectorAll('[data-copy]').forEach(el => el.addEventListener('click', copyEmail));
+
+    // Highlight the current section in the side nav.
+    const links = [...document.querySelectorAll('.toc a')];
+    const spy = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === '#' + e.target.id));
+    }), { rootMargin: '-40% 0px -55% 0px' });
+    document.querySelectorAll('main section').forEach(s => spy.observe(s));
+
+    // Fade sections in as they scroll into view.
+    const fades = document.querySelectorAll('.fade');
     if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver(entries => entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-      }), { threshold: 0.08 });
-      items.forEach(el => io.observe(el));
-    } else {
-      items.forEach(el => el.classList.add('visible'));
-    }
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }), { threshold: .06 });
+      fades.forEach(f => io.observe(f));
+    } else fades.forEach(f => f.classList.add('in'));
+
+    // "Updated" date from the latest commit to this site.
+    fetch('https://api.github.com/repos/abchughtai786/abchughtai786.github.io/commits?per_page=1')
+      .then(r => r.ok ? r.json() : [])
+      .then(c => {
+        if (c[0]) document.getElementById('updated').textContent = 'Updated ' +
+          new Date(c[0].commit.author.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+      })
+      .catch(() => {});
+
+    // Command menu: Ctrl/Cmd + K.
+    const actions = [
+      ['About', 'section', () => location.hash = '#about'],
+      ['Selected work', 'section', () => location.hash = '#work'],
+      ['Experience', 'section', () => location.hash = '#experience'],
+      ['Contact', 'section', () => location.hash = '#contact'],
+      ['Copy email address', 'action', copyEmail],
+      ['Try the Pintern app demo', 'link', () => location.href = 'https://abchughtai786.github.io/pintern-portfolio-demo/'],
+      ['GitHub', 'link', () => location.href = 'https://github.com/abchughtai786'],
+      ['LinkedIn', 'link', () => location.href = 'https://www.linkedin.com/in/ahsan-chughtai/'],
+    ];
+    const pal = document.getElementById('palette'), q = document.getElementById('q'), ul = document.getElementById('results');
+    let shown = [], sel = 0;
+    const render = () => {
+      shown = actions.filter(a => a[0].toLowerCase().includes(q.value.toLowerCase()));
+      sel = Math.min(sel, Math.max(shown.length - 1, 0));
+      ul.innerHTML = shown.map((a, i) => `<li class="${i === sel ? 'sel' : ''}" data-i="${i}">${a[0]}<span>${a[1]}</span></li>`).join('');
+    };
+    const open = () => { pal.classList.add('open'); q.value = ''; sel = 0; render(); q.focus(); };
+    const close = () => pal.classList.remove('open');
+    const run = i => { const a = shown[i]; if (a) { close(); a[2](); } };
+    document.getElementById('open-palette').addEventListener('click', open);
+    document.addEventListener('keydown', e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault(); pal.classList.contains('open') ? close() : open();
+      } else if (pal.classList.contains('open') && shown.length) {
+        if (e.key === 'Escape') close();
+        else if (e.key === 'ArrowDown') { sel = (sel + 1) % shown.length; render(); e.preventDefault(); }
+        else if (e.key === 'ArrowUp') { sel = (sel - 1 + shown.length) % shown.length; render(); e.preventDefault(); }
+        else if (e.key === 'Enter') run(sel);
+      } else if (e.key === 'Escape') close();
+    });
+    q.addEventListener('input', () => { sel = 0; render(); });
+    ul.addEventListener('click', e => { const li = e.target.closest('li'); if (li) run(+li.dataset.i); });
+    pal.addEventListener('click', e => { if (e.target === pal) close(); });
   </script>
 </body>
 </html>
