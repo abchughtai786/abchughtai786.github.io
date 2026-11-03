@@ -181,7 +181,7 @@
         <p class="lede">I co-founded Pintern, and I wrote the pipeline that runs it. It reads job posts, <em>throws out the scams</em>, and publishes the rest without anyone touching it.</p>
         <div class="prose">
           <p>Before code, I spent two years in remote operations for UK and international teams: checking data, writing reports, running Daraz seller accounts. That work made me allergic to anything that breaks quietly, so what I build fails loudly and safely instead.</p>
-          <p>At home I run my own Linux server. It controls our water pumps, watches its own disks, and recently warned me that one of them is starting to fail, before I lost anything on it.</p>
+          <p>Outside work, I build for my own home too: a self-hosted Linux server, the monitoring that watches it, and an IoT system that runs our water pumps.</p>
         </div>
         <div class="now" style="margin-top:32px">
           <span class="mono">Now · November 2026</span>
@@ -261,7 +261,7 @@
           <dl class="pab">
             <dt>Problem</dt><dd>Disks on a small server fail slowly, then all at once. "Mounted" doesn't mean "writable".</dd>
             <dt>Built</dt><dd>Telegraf, InfluxDB and Grafana in Docker Compose, with custom checks for disk writes and kernel disk errors. The database is never exposed, and the collector gets read-only access instead of a privileged container.</dd>
-            <dt>Result</dt><dd><b>It flagged a failing backup disk on my own server</b> while it still worked. CI starts the whole stack on every change and checks that all 13 metric types arrive.</dd>
+            <dt>Result</dt><dd><b>Disk problems show up early</b>, while a disk still works. CI starts the whole stack on every change and checks that all 13 metric types arrive.</dd>
           </dl>
           <div class="stack mono"><span>Grafana</span><span>InfluxDB</span><span>Telegraf</span><span>Docker</span></div>
         </article>
